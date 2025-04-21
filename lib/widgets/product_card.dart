@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../models/product.dart';
-import '../providers/cart_provider.dart';
 
 class ProductCard extends StatelessWidget {
-  final Product product;
+  final Map<String, dynamic> producto;
 
-  const ProductCard({super.key, required this.product});
+  const ProductCard({super.key, required this.producto});
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<CartProvider>(context, listen: false);
-
     return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       child: ListTile(
-        title: Text(product.name),
-        subtitle: Text('Categoría: ${product.category}\n\$${product.price}'),
-        trailing: IconButton(
-          icon: const Icon(Icons.add_shopping_cart),
-          onPressed: () {
-            cart.addToCart(product);
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('${product.name} agregado al carrito')),
-            );
-          },
+        leading: Image.network(
+          producto['imagen'] != null
+              ? "http://192.168.0.12:5000/uploads/${producto['imagen']}"
+              : "https://via.placeholder.com/50",
+          width: 50,
+          height: 50,
+          fit: BoxFit.cover,
+        ),
+        title: Text(producto['nombre']),
+        subtitle: Text("${producto['descripcion']} - \$${producto['precio']}"),
+        trailing: Text(
+          producto['estado'] ?? '✔️',
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
     );

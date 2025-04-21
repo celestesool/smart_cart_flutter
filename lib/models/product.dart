@@ -1,27 +1,33 @@
+// 📁 lib/models/product.dart
+
 class Product {
   final int id;
-  final String name;
-  final double price;
-  final String category;
-  final String imageUrl;
+  final String nombre;
+  final String descripcion;
+  final double precio;
+  final int stock;
+  final String categoria;
+  final String? imagen;
 
   Product({
     required this.id,
-    required this.name,
-    required this.price,
-    required this.category,
-    required this.imageUrl,
+    required this.nombre,
+    required this.descripcion,
+    required this.precio,
+    required this.stock,
+    required this.categoria,
+    this.imagen,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'],
-      name: json['nombre'],
-      price: (json['precio'] as num).toDouble(),
-      category: json['categoria'],
-      imageUrl: json['imagen'] != null && json['imagen'].toString().isNotEmpty
-          ? json['imagen']
-          : 'https://cdn-icons-png.flaticon.com/512/679/679720.png', // imagen por defecto
+      nombre: json['nombre'],
+      descripcion: json['descripcion'],
+      precio: json['precio'].toDouble(),
+      stock: json['stock'],
+      categoria: json['categoria'],
+      imagen: json['imagen'],
     );
   }
 }

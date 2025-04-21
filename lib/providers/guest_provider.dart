@@ -1,22 +1,14 @@
+// 📁 lib/providers/guest_provider.dart
 
 import 'package:flutter/material.dart';
 
 class GuestProvider extends ChangeNotifier {
-  String? _token;
-  String? _email;
+  String _nombre = "Usuario";
 
-  String? get token => _token;
-  String? get email => _email;
+  String get nombre => _nombre;
 
-  void setGuestData({required String token, required String email}) {
-    _token = token;
-    _email = email;
-    notifyListeners();
-  }
-
-  void clearGuest() {
-    _token = null;
-    _email = null;
+  void cambiarNombre(String nuevoNombre) {
+    _nombre = nuevoNombre;
     notifyListeners();
   }
 }
