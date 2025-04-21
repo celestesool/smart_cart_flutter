@@ -1,7 +1,5 @@
 // 📁 lib/widgets/mic_button.dart
 
-// ignore_for_file: prefer_const_constructors, use_build_context_synchronously, avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:shared_preferences/shared_preferences.dart';

@@ -1,6 +1,4 @@
 // 📁 lib/screens/calificar_screen.dart
-// ignore_for_file: avoid_print, use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -21,7 +19,8 @@ class _CalificarScreenState extends State<CalificarScreen> {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
 
-    final url = Uri.parse("http://192.168.0.12:5000/calificaciones");
+    final url =
+        Uri.parse("https://smartcart-backend-klyi.onrender.com/calificaciones");
 
     print("📦 Enviando calificación:");
     print("➡️ ID Compra: $idCompra");

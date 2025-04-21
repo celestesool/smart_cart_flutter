@@ -1,7 +1,5 @@
 // 📁 lib/screens/recibo_screen.dart
 
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -28,8 +26,8 @@ class _ReciboScreenState extends State<ReciboScreen> {
   Future<void> obtenerRecibo() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final url =
-        Uri.parse('http://192.168.0.12:5000/compras/${widget.idCompra}');
+    final url = Uri.parse(
+        'https://smartcart-backend-klyi.onrender.com/compras/${widget.idCompra}');
 
     for (int intento = 1; intento <= 3; intento++) {
       try {

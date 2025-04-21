@@ -1,7 +1,5 @@
 // 📁 lib/utils/auth_service.dart
 
-// ignore_for_file: use_build_context_synchronously, avoid_print
-
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';

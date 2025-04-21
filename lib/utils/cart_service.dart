@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,7 +7,8 @@ import '../models/cart_item.dart';
 Future<List<CartItem>> obtenerDetalleCarritoDesdeBackend() async {
   final prefs = await SharedPreferences.getInstance();
   final token = prefs.getString('token');
-  final url = Uri.parse('http://192.168.0.12:5000/detalle_carrito/ver');
+  final url = Uri.parse(
+      'build/app/outputs/flutter-apk/app-release.apk/detalle_carrito/ver');
 
   final response = await http.get(
     url,
@@ -45,7 +44,8 @@ Future<bool> agregarProductoAlCarrito(Product producto, int cantidad) async {
   final prefs = await SharedPreferences.getInstance();
   final token = prefs.getString('token');
 
-  final url = Uri.parse('http://192.168.0.12:5000/detalle_carrito/agregar');
+  final url = Uri.parse(
+      'build/app/outputs/flutter-apk/app-release.apk/detalle_carrito/agregar');
 
   final body = jsonEncode({
     "id_producto": producto.id,
@@ -67,7 +67,7 @@ Future<bool> actualizarCantidadProducto(
   final prefs = await SharedPreferences.getInstance();
   final token = prefs.getString('token');
   final url = Uri.parse(
-      'http://192.168.0.12:5000/detalle_carrito/actualizar/$idDetalle');
+      'https://smartcart-backend-klyi.onrender.com/detalle_carrito/actualizar/$idDetalle');
 
   final response = await http.put(
     url,
@@ -92,7 +92,7 @@ Future<bool> eliminarProductoDelCarrito(int idProducto) async {
   final token = prefs.getString('token');
 
   final url = Uri.parse(
-      'http://192.168.0.12:5000/detalle_carrito/eliminar/$idProducto');
+      'https://smartcart-backend-klyi.onrender.com/detalle_carrito/eliminar/$idProducto');
 
   final response = await http.delete(
     url,
@@ -115,7 +115,7 @@ Future<void> vaciarCarritoDesdeBackend() async {
   final token = prefs.getString('token');
 
   final response = await http.delete(
-    Uri.parse('http://192.168.0.12:5000/detalle_carrito/vaciar'),
+    Uri.parse('https://smartcart-backend-klyi.onrender.com/vaciar'),
     headers: {'Authorization': 'Bearer $token'},
   );
 

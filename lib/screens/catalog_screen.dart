@@ -1,7 +1,5 @@
 // 📁 lib/screens/catalogo_screen.dart
 
-// ignore_for_file: avoid_print, unused_element, use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -42,7 +40,8 @@ class _CatalogoScreenState extends State<CatalogoScreen> {
   Future<void> cargarProductos() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final url = Uri.parse('http://192.168.0.12:5000/catalogo');
+    final url =
+        Uri.parse('https://smartcart-backend-klyi.onrender.com/catalogo');
 
     try {
       final response = await http.get(
@@ -70,7 +69,8 @@ class _CatalogoScreenState extends State<CatalogoScreen> {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
 
-    final url = Uri.parse('http://192.168.0.12:5000/carrito/crear');
+    final url =
+        Uri.parse('https://smartcart-backend-klyi.onrender.com/carrito/crear');
 
     try {
       final response = await http.post(

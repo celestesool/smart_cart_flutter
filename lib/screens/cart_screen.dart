@@ -1,7 +1,5 @@
 // 📁 lib/screens/cart_screen.dart
 
-// ignore_for_file: avoid_print, use_build_context_synchronously, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import '../models/cart_item.dart';
 import '../utils/cart_service.dart';

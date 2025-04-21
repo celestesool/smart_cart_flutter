@@ -1,7 +1,5 @@
 // 📁 lib/screens/voice_screen.dart
 
-// ignore_for_file: avoid_print, use_build_context_synchronously, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 import 'package:smart_cart_flutter/services/voz_service.dart'; // Ajustá el nombre si tu proyecto se llama distinto

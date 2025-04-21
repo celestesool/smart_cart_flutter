@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, avoid_print, use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -10,7 +8,8 @@ class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   Future<void> loginComoVisitante(BuildContext context) async {
-    final url = Uri.parse('http://192.168.0.12:5000/token/visitante');
+    final url = Uri.parse(
+        'https://smartcart-backend-klyi.onrender.com/token/visitante');
     try {
       final response = await http.get(url).timeout(Duration(seconds: 5));
 

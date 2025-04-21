@@ -1,10 +1,8 @@
-// ignore_for_file: avoid_print
-
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class VozService {
-  static const String baseUrl = "http://10.0.2.2:5000";
+  static const String baseUrl = "https://smartcart-backend-klyi.onrender.com";
 
   static Future<String> procesarTexto(String texto, int idUsuario) async {
     final url = Uri.parse('$baseUrl/voz/procesar');

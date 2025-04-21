@@ -1,7 +1,5 @@
 // 📁 lib/screens/checkout_screen.dart
 
-// ignore_for_file: avoid_print, use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,8 +34,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
 
-    final url =
-        Uri.parse('http://192.168.0.12:5000/ventas/confirmar/$idCarrito');
+    final url = Uri.parse(
+        'https://smartcart-backend-klyi.onrender.com/ventas/confirmar/$idCarrito');
     final response = await http.post(
       url,
       headers: {

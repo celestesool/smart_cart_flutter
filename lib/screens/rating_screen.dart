@@ -1,7 +1,5 @@
 // 📁 lib/screens/rating_screen.dart
 
-// ignore_for_file: use_build_context_synchronously, avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -22,7 +20,8 @@ class _RatingScreenState extends State<RatingScreen> {
   Future<void> enviarCalificacion() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    final url = Uri.parse('http://192.168.0.12:5000/calificaciones');
+    final url =
+        Uri.parse('https://smartcart-backend-klyi.onrender.com/calificaciones');
 
     try {
       final response = await http.post(
